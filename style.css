@@ -17,7 +17,18 @@ body::before{content:"";position:fixed;inset:0;z-index:-4;background:radial-grad
 .hero-copy{padding:50px 0 40px;position:relative;z-index:2}
 .eyebrow{color:#dbe5f8;font-size:23px;font-weight:600;margin-bottom:16px}
 .hero-title{max-width:720px;font-family:"Space Grotesk",sans-serif;font-size:clamp(62px,7vw,102px);line-height:.92;letter-spacing:-.065em;font-weight:700;color:#f2f6ff}
-.flow-letter{display:inline-block;background:linear-gradient(100deg,#f2f6ff 15%,#8fb8ff 62%,#b89dff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;transition:transform .36s cubic-bezier(.22,1,.36,1);will-change:transform}
+.flow-letter {
+    display: inline-block;
+    color: #f2f6ff;
+    transition:
+        transform 0.35s cubic-bezier(.22, 1, .36, 1),
+        color 0.25s ease;
+    will-change: transform;
+}
+
+.flow-letter:hover {
+    color: #9bbcff;
+}
 .flow-space{display:inline-block;width:.27em}
 .role{color:#78aaff;font-size:20px;font-weight:600;margin-top:30px}
 .typing-caret{opacity:.85}
