@@ -1,19 +1,21 @@
 # Shaswat Raj Singh — Interactive Portfolio
 
-A static, responsive portfolio for GitHub Pages.
+A GitHub Pages-ready portfolio built with HTML, CSS and JavaScript.
 
-## Features
-- Cursor-following ambient glow with dynamic color shifting
-- Cursor trail and interactive hover states
-- 3D tilt cards for projects, skills, certifications and activities
-- Reactive 3D hero orb
-- Responsive navigation and mobile layout
-- Certificate preview modal
-- Technical + non-technical certifications
-- Education, projects, AI learning path and sports activities
+Inspired by modern web-motion principles such as:
+- ambient background motion
+- expressive typography
+- scroll reveal / scrollytelling
+- hover microinteractions
+- faux 3D / tilt
+- animated gradients and line art
+- glass-like UI surfaces
 
-## GitHub Pages
-Upload the contents of this folder to the root of a public GitHub repository, then enable:
-**Settings → Pages → Deploy from a branch → main → / (root)**
+## Add certificates
 
-The included MyCaptain DSA certificate is at `certificates/dsa-mycaptain.pdf`.
+Place certificate PDFs in `certificates/`.
+
+The DSA card expects:
+`certificates/dsa-certificate.pdf`
+
+No framework or build step is required.

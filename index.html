@@ -1,172 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shaswat Raj Singh — Computer Science, Software Development, Generative AI and Agentic AI portfolio.">
-  <title>Shaswat Raj Singh | Developer Portfolio</title>
+  <meta name="description" content="Shaswat Raj Singh — Computer Science portfolio focused on software development, AI and GenAI.">
+  <title>Shaswat Raj Singh — Creative Developer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="cursorGlow"></div>
   <div class="noise"></div>
-  <canvas id="stars"></canvas>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="cursor-glow"></div>
 
-  <nav class="nav">
-    <a class="brand" href="#home">SR<span>.</span></a>
-    <div class="navlinks">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
-      <a href="#certifications">Certifications</a><a href="#activities">Activities</a><a href="#education">Education</a><a href="#contact">Contact</a>
-    </div>
-    <a class="nav-cta" href="#contact">Let's connect <span>↗</span></a>
-    <button class="menu" aria-label="Open menu">☰</button>
-  </nav>
+  <header class="nav" id="nav">
+    <a class="brand magnetic" href="#top" aria-label="Home">
+      <span class="brand-mark">SR</span>
+      <span>SHASWAT</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu magnetic" aria-label="Toggle menu"><span></span><span></span></button>
+  </header>
 
-  <main>
-    <section id="home" class="hero section">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="pulse"></span> Currently exploring · Generative AI + Agentic AI</div>
-        <h1>SHASWAT<br><em>RAJ SINGH</em></h1>
-        <p class="hero-role">Computer Science · Software Development · AI / GenAI</p>
-        <p class="hero-text">I build practical software projects while exploring Generative AI, Agentic AI and modern developer technologies.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">View projects <span>↓</span></a>
-          <a class="btn ghost" href="#contact">Connect with me <span>↗</span></a>
-        </div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/shaswat-raj-singh-76768238a/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/ShaswatRaj01" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="mailto:shaswatraj585@gmail.com">Email</a>
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-grid"></div>
+      <div class="hero-copy">
+        <p class="eyebrow reveal">COMPUTER SCIENCE • AI • SOFTWARE</p>
+        <h1 class="hero-title">
+          <span class="line reveal">Building</span>
+          <span class="line reveal delay-1"><em>things</em> that</span>
+          <span class="line reveal delay-2">feel alive<span class="accent">.</span></span>
+        </h1>
+        <p class="hero-sub reveal delay-3">
+          B.Tech CSE student exploring software development, Generative AI,
+          agentic workflows and product-focused web experiences.
+        </p>
+        <div class="hero-actions reveal delay-4">
+          <a class="btn btn-primary magnetic" href="#work">Explore my work <span>↘</span></a>
+          <a class="btn btn-ghost magnetic" href="https://github.com/ShaswatRaj01" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/shaswat-raj-singh-76768238a" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
-      <div class="hero-art">
-        <div class="orb-wrap" id="orb">
-          <div class="orb"><div class="orb-core"></div></div>
-          <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
-          <div class="node n1"></div><div class="node n2"></div><div class="node n3"></div><div class="node n4"></div>
-        </div>
-        <div class="floating-chip chip-a">Python</div>
-        <div class="floating-chip chip-b">LLM + RAG</div>
-        <div class="floating-chip chip-c">DSA</div>
-      </div>
-      <div class="scroll-hint">SCROLL TO EXPLORE <span>↓</span></div>
-    </section>
 
-    <section id="about" class="section">
-      <div class="section-head reveal"><span>01</span><h2>Building the foundation.</h2></div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p class="lead">I'm a Computer Science undergraduate building a strong foundation in programming, data structures, databases and software development while exploring Generative AI and Agentic AI.</p>
-          <p>I enjoy turning what I learn into practical projects and experimenting with new technologies. My current learning path is deliberately broad — from core programming and DSA to SQL, web development, GenAI and multi-model AI workflows.</p>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="orb orb-c"></div>
+        <div class="orbit-ring ring-1"></div>
+        <div class="orbit-ring ring-2"></div>
+        <div class="orbit-ring ring-3"></div>
+        <div class="orb-core">
+          <span>AI</span>
+          <small>01</small>
         </div>
-        <div class="journey reveal">
-          <div class="journey-line"></div>
-          <div class="journey-item active"><b>01</b><strong>Programming</strong><small>Python · C · C++</small></div>
-          <div class="journey-item"><b>02</b><strong>DSA</strong><small>Problem solving · Algorithms</small></div>
-          <div class="journey-item"><b>03</b><strong>Databases</strong><small>SQL · PostgreSQL · MySQL</small></div>
-          <div class="journey-item"><b>04</b><strong>Web</strong><small>HTML · CSS · JavaScript</small></div>
-          <div class="journey-item"><b>05</b><strong>GenAI</strong><small>LLMs · Prompting · RAG</small></div>
-          <div class="journey-item"><b>06</b><strong>Agentic AI</strong><small>Multi-model workflows</small></div>
-        </div>
+      </div>
+
+      <div class="scroll-cue">
+        <span>SCROLL TO EXPLORE</span>
+        <i></i>
       </div>
     </section>
 
-    <section id="skills" class="section">
-      <div class="section-head reveal"><span>02</span><h2>Tools I build with.</h2></div>
-      <div class="skill-cloud reveal">
-        <div class="skill-card s1"><span>PY</span><h3>Python</h3><p>Programming · AI · Prototyping</p></div>
-        <div class="skill-card s2"><span>DS</span><h3>DSA</h3><p>Algorithms · Problem solving</p></div>
-        <div class="skill-card s3"><span>SQL</span><h3>SQL</h3><p>Relational data · Queries</p></div>
-        <div class="skill-card s4"><span>AI</span><h3>Generative AI</h3><p>LLMs · Prompt Engineering · RAG</p></div>
-        <div class="skill-card s5"><span>JS</span><h3>JavaScript</h3><p>Web · Interactive interfaces</p></div>
-        <div class="skill-card s6"><span>DB</span><h3>Databases</h3><p>PostgreSQL · MySQL · MongoDB</p></div>
-        <div class="skill-card s7"><span>GH</span><h3>Git / GitHub</h3><p>Version control · Collaboration</p></div>
-        <div class="skill-card s8"><span>C++</span><h3>C / C++</h3><p>Core programming · OOP</p></div>
+    <section class="marquee" aria-label="Areas of interest">
+      <div class="marquee-track">
+        <span>SOFTWARE DEVELOPMENT</span><b>✦</b>
+        <span>GENERATIVE AI</span><b>✦</b>
+        <span>DSA</span><b>✦</b>
+        <span>PRODUCT PROTOTYPING</span><b>✦</b>
+        <span>WEB EXPERIENCES</span><b>✦</b>
+        <span>SOFTWARE DEVELOPMENT</span><b>✦</b>
+        <span>GENERATIVE AI</span><b>✦</b>
+        <span>DSA</span><b>✦</b>
+        <span>PRODUCT PROTOTYPING</span><b>✦</b>
       </div>
-      <div class="skill-strip reveal">HTML · CSS · Node.js · REST APIs · FastAPI · VS Code · Figma · Canva · Gamma · UML · DFD · DBMS</div>
     </section>
 
-    <section id="projects" class="section projects">
-      <div class="section-head reveal"><span>03</span><h2>Things I've built.</h2></div>
-      <p class="section-intro reveal">A mix of software, AI, web, hardware and academic work — built to turn learning into something tangible.</p>
-      <div class="project-grid">
-        <article class="project-card featured reveal">
-          <div class="project-no">01</div><div class="project-visual ai-visual"><div class="mini-node a"></div><div class="mini-node b"></div><div class="mini-node c"></div><div class="mini-core">AI</div></div>
-          <div class="project-body"><span class="status">Exploration / Prototype</span><h3>AgentFlow</h3><h4>Multi-Model AI Assistant</h4><p>A modular AI workflow that routes tasks to specialized models, combines responses and uses retrieval to improve grounded answers.</p><div class="tags"><i>Python</i><i>LLM APIs</i><i>RAG</i><i>FastAPI</i></div></div>
+    <section class="section intro" id="about">
+      <div class="section-kicker reveal">01 / ABOUT</div>
+      <div class="intro-layout">
+        <h2 class="display reveal">Curious by default.<br><span>Builder by choice.</span></h2>
+        <div class="intro-copy reveal delay-1">
+          <p>I’m Shaswat, a Computer Science & Engineering student at Lovely Professional University. I enjoy turning ideas into working prototypes and learning by building.</p>
+          <p>My current path sits at the intersection of software engineering, DSA, Python, databases and Generative AI.</p>
+          <div class="stats">
+            <div><strong>7.7</strong><span>CGPA</span></div>
+            <div><strong>5+</strong><span>Project concepts</span></div>
+            <div><strong>4</strong><span>Core areas</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work" id="work">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker reveal">02 / SELECTED WORK</div>
+          <h2 class="display reveal">Ideas → <span>interfaces</span> → prototypes.</h2>
+        </div>
+        <p class="section-note reveal">Hover. Tilt. Explore.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project-card project-featured tilt reveal" data-accent="cyan">
+          <div class="project-glow"></div>
+          <div class="project-top"><span>01</span><span>AI / PYTHON</span></div>
+          <div class="project-art ai-art">
+            <div class="ai-node n1"></div><div class="ai-node n2"></div><div class="ai-node n3"></div>
+            <svg viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M50 180 C180 20 300 230 420 70 S560 100 580 40"/></svg>
+          </div>
+          <div class="project-info">
+            <h3>AgentFlow</h3>
+            <p>A modular multi-model AI workflow concept for routing tasks to specialized models, combining responses and using retrieval for grounded answers.</p>
+            <div class="tags"><span>Python</span><span>LLM APIs</span><span>RAG</span><span>FastAPI</span></div>
+          </div>
         </article>
-        <article class="project-card reveal">
-          <div class="project-no">02</div><div class="project-visual resume-visual"><div class="resume-sheet"><span></span><span></span><span></span><b>MATCH</b><strong>87%</strong></div></div>
-          <div class="project-body"><span class="status">Web / AI</span><h3>Resume Match</h3><h4>Resume Matching Website</h4><p>Compares resume content with job requirements and highlights relevant skills and matches.</p><div class="tags"><i>Web</i><i>AI / NLP</i></div></div>
+
+        <article class="project-card tilt reveal delay-1" data-accent="violet">
+          <div class="project-top"><span>02</span><span>WEB / AI</span></div>
+          <div class="project-art match-art"><div class="resume-window"><i></i><i></i><i></i><div class="match-line"></div><div class="match-line short"></div><div class="match-score">92%</div></div></div>
+          <div class="project-info">
+            <h3>Resume Match</h3>
+            <p>Web-based resume matching concept that compares resume content with job requirements and highlights relevant skills and matches.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>AI/NLP</span></div>
+          </div>
         </article>
-        <article class="project-card reveal">
-          <div class="project-no">03</div><div class="project-visual split-visual"><div class="split-circle">₹</div><div class="split-lines"></div></div>
-          <div class="project-body"><span class="status">Product Concept</span><h3>Splita</h3><h4>Fair Rent, Smarter Living</h4><p>A roommate-focused product concept for fair rent and shared-expense splitting using income-percentage checks.</p><div class="tags"><i>HTML</i><i>CSS</i><i>JavaScript</i><i>UI/UX</i></div></div>
+
+        <article class="project-card tilt reveal delay-2" data-accent="orange">
+          <div class="project-top"><span>03</span><span>PRODUCT / UI</span></div>
+          <div class="project-art split-art"><div class="split-circle"></div><div class="split-bar b1"></div><div class="split-bar b2"></div><div class="split-bar b3"></div></div>
+          <div class="project-info">
+            <h3>Splita</h3>
+            <p>Fair-rent and shared-living product concept focused on income-percentage checks and a clear roommate experience.</p>
+            <div class="tags"><span>UI/UX</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </div>
         </article>
-        <article class="project-card reveal">
-          <div class="project-no">04</div><div class="project-visual gps-visual"><div class="radar"></div><div class="pin">●</div></div>
-          <div class="project-body"><span class="status">Hardware Prototype</span><h3>AccidentAssist</h3><h4>Emergency Detection System</h4><p>An accident-detection prototype using sensor and GPS data to initiate an emergency communication workflow.</p><div class="tags"><i>Arduino</i><i>GPS</i><i>MPU</i><i>HC-05</i></div></div>
+
+        <article class="project-card tilt reveal" data-accent="green">
+          <div class="project-top"><span>04</span><span>IOT / EMBEDDED</span></div>
+          <div class="project-art accident-art"><div class="radar"></div><div class="pin">+</div><div class="signal s1"></div><div class="signal s2"></div></div>
+          <div class="project-info">
+            <h3>AccidentAssist</h3>
+            <p>Emergency-detection prototype concept using GPS, MPU sensing and HC-05 communication to trigger an emergency workflow.</p>
+            <div class="tags"><span>Arduino</span><span>GPS</span><span>MPU</span><span>HC-05</span></div>
+          </div>
         </article>
-        <article class="project-card reveal">
-          <div class="project-no">05</div><div class="project-visual uml-visual"><div class="uml-box">USER</div><div class="uml-box">SYSTEM</div><div class="uml-box">CHAT</div></div>
-          <div class="project-body"><span class="status">Academic Project</span><h3>Clash of Clans</h3><h4>Software Requirements Specification</h4><p>Requirements and system models for account recovery, seamless reconnection and moderated AI-filtered chat.</p><div class="tags"><i>SRS</i><i>DFD</i><i>UML</i><i>SE</i></div></div>
+
+        <article class="project-card tilt reveal delay-1" data-accent="pink">
+          <div class="project-top"><span>05</span><span>SOFTWARE ENGINEERING</span></div>
+          <div class="project-art srs-art"><div class="doc-sheet"><span>SRS</span><b>UML</b><b>DFD</b><b>REQ</b></div></div>
+          <div class="project-info">
+            <h3>Clash of Clans — SRS</h3>
+            <p>Software requirements work covering account recovery, seamless reconnection and moderated AI-filtered chat features.</p>
+            <div class="tags"><span>SRS</span><span>DFD</span><span>UML</span><span>DBMS</span></div>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="certifications" class="section">
-      <div class="section-head reveal"><span>04</span><h2>Learning in public.</h2></div>
-      <p class="section-intro reveal">Completed courses and current learning, with space for the original certificates to be opened directly.</p>
-      <div class="cert-columns">
-        <div class="cert-column reveal"><h3>Technical</h3>
-          <div class="cert-card" data-cert="certificates/iamneo-programming.pdf"><div><b>Computer Programming</b><small>iamneo (An NIIT Venture) · 150 hours · Jan–May 2026</small></div><button>View certificate ↗</button></div>
-          <div class="cert-card" data-cert="certificates/saylor-python.pdf"><div><b>CS105: Introduction to Python</b><small>Saylor Academy · February 2026</small></div><button>View certificate ↗</button></div>
-          <div class="cert-card" data-cert="certificates/dsa-mycaptain.pdf"><div><b>Data Structures & Algorithms</b><small>MyCaptain · July 2026 · Certificate ID: 3T1BD57U3SY5P</small></div><button type="button">View certificate ↗</button></div>
-          <div class="cert-card pursuing"><div><b>Generative AI</b><small>Tutedude · Currently Pursuing</small></div><span>Learning</span></div>
-          <div class="cert-card pursuing"><div><b>Python Programming</b><small>Tutedude · Currently Pursuing</small></div><span>Learning</span></div>
-          <div class="cert-card pursuing"><div><b>SQL</b><small>Tutedude · Currently Pursuing</small></div><span>Learning</span></div>
+    <section class="section skills" id="skills">
+      <div class="section-kicker reveal">03 / TOOLKIT</div>
+      <div class="skills-layout">
+        <h2 class="display reveal">A growing <span>toolbox.</span></h2>
+        <div class="skill-cloud reveal delay-1">
+          <span class="skill large">Python</span><span class="skill">C/C++</span><span class="skill accent-skill">Generative AI</span>
+          <span class="skill">SQL</span><span class="skill large">JavaScript</span><span class="skill">HTML</span><span class="skill">CSS</span>
+          <span class="skill">PostgreSQL</span><span class="skill">MySQL</span><span class="skill">Git</span><span class="skill large">DSA</span>
+          <span class="skill">REST APIs</span><span class="skill">FastAPI</span><span class="skill">RAG Concepts</span><span class="skill">OOP</span>
+          <span class="skill">DBMS</span><span class="skill">UML / DFD</span><span class="skill">Figma</span><span class="skill">VS Code</span>
         </div>
-        <div class="cert-column reveal"><h3>Non-Technical</h3>
-          <div class="cert-card" data-cert="certificates/code-carvan.pdf"><div><b>Code Carvan 3.0 Mentor Session</b><small>Coding Blocks & Lovely Professional University</small></div><button>View certificate ↗</button></div>
-          <div class="cert-card" data-cert="certificates/indian-laws.pdf"><div><b>Indian Laws: Know Your Rights</b><small>Learn Foundation Online · 5+ hours · October 2025</small></div><button>View certificate ↗</button></div>
-          <div class="cert-card" data-cert="certificates/organ-donation.pdf"><div><b>National Organ Donation Awareness Quiz</b><small>Ministry of Youth Affairs & Sports, MYBharat · April 2026</small></div><button>View certificate ↗</button></div>
+      </div>
+    </section>
+
+    <section class="section certifications" id="certifications">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker reveal">04 / CREDENTIALS</div>
+          <h2 class="display reveal">Proof of <span>learning.</span></h2>
         </div>
       </div>
-      <p class="upload-note">Certificate buttons are wired to the <code>certificates/</code> folder. The DSA certificate is included. Add your other certificate files to this folder and wire them to their cards when ready.</p>
+      <div class="cert-grid">
+        <article class="cert-card tilt reveal">
+          <div class="cert-icon">DSA</div>
+          <div><span class="cert-type">TECHNICAL</span><h3>DSA</h3><p>MyCaptain</p></div>
+          <a class="cert-link magnetic" href="certificates/dsa-certificate.pdf" target="_blank">VIEW ↗</a>
+        </article>
+        <article class="cert-card tilt reveal delay-1">
+          <div class="cert-icon">PY</div>
+          <div><span class="cert-type">TECHNICAL</span><h3>CS105: Introduction to Python</h3><p>Saylor Academy · Feb 2026</p></div>
+          <a class="cert-link magnetic" href="#" onclick="return false" title="Add certificate PDF">PDF +</a>
+        </article>
+        <article class="cert-card tilt reveal delay-2">
+          <div class="cert-icon">LAW</div>
+          <div><span class="cert-type">NON-TECH</span><h3>Indian Laws: Know Your Rights</h3><p>Learn Foundation Online · 5+ hours</p></div>
+          <a class="cert-link magnetic" href="#" onclick="return false">PDF +</a>
+        </article>
+        <article class="cert-card tilt reveal">
+          <div class="cert-icon">LPU</div>
+          <div><span class="cert-type">NON-TECH</span><h3>Code Carvan 3.0 Mentor Session</h3><p>Coding Blocks · LPU</p></div>
+          <a class="cert-link magnetic" href="#" onclick="return false">PDF +</a>
+        </article>
+        <article class="cert-card tilt reveal delay-1">
+          <div class="cert-icon">🇮🇳</div>
+          <div><span class="cert-type">NON-TECH</span><h3>National Organ Donation Awareness Quiz</h3><p>MYBharat · Apr 2026</p></div>
+          <a class="cert-link magnetic" href="#" onclick="return false">PDF +</a>
+        </article>
+      </div>
+      <p class="small-note reveal">Current learning: Generative AI, SQL and Python through Tutedude; DSA through MyCaptain.</p>
     </section>
 
-    <section id="activities" class="section activities">
-      <div class="section-head reveal"><span>05</span><h2>Beyond the code.</h2></div>
-      <div class="sports-grid">
-        <div class="sports-hero reveal"><div class="ball">◉</div><p class="eyebrow">SPORTS & ACTIVITIES</p><h3>Competition taught me<br><em>teamwork.</em></h3><p>Technology isn't the only place I've learned to compete, collaborate and keep showing up.</p></div>
-        <div class="sport-item reveal"><span>01</span><b>BASKETBALL · UNIVERSITY</b><h3>Inter-Hostel</h3><p>Participated in Inter-Hostel Basketball competitions at Lovely Professional University.</p></div>
-        <div class="sport-item reveal"><span>02</span><b>BASKETBALL · SCHOOL</b><h3>2× Regionals</h3><p>Represented school at Basketball Regional-level competitions on two occasions.</p></div>
-        <div class="sport-item reveal"><span>03</span><b>HANDBALL · SCHOOL</b><h3>National</h3><p>Represented school at the National-level competition on one occasion.</p></div>
-        <div class="sport-item reveal"><span>04</span><b>CODING ACTIVITY</b><h3>Code Carvan 3.0</h3><p>Participated in a mentor session focused on hackathon preparation, teamwork and problem-solving.</p></div>
+    <section class="section journey" id="journey">
+      <div class="section-kicker reveal">05 / JOURNEY</div>
+      <div class="journey-layout">
+        <h2 class="display reveal">More than <span>code.</span></h2>
+        <div class="timeline">
+          <div class="timeline-item reveal"><span>01</span><div><b>B.Tech CSE · LPU</b><p>2025 — Present · CGPA 7.7</p></div></div>
+          <div class="timeline-item reveal delay-1"><span>02</span><div><b>Basketball</b><p>Inter-hostel participation at university.</p></div></div>
+          <div class="timeline-item reveal delay-2"><span>03</span><div><b>School Basketball</b><p>Represented school at regional level twice.</p></div></div>
+          <div class="timeline-item reveal delay-3"><span>04</span><div><b>Handball</b><p>Represented school at national level.</p></div></div>
+        </div>
       </div>
     </section>
 
-    <section id="education" class="section">
-      <div class="section-head reveal"><span>06</span><h2>The academic timeline.</h2></div>
-      <div class="edu-timeline reveal">
-        <div class="edu active"><span>2025 — Present</span><div><h3>Lovely Professional University</h3><p>B.Tech — Computer Science & Engineering (Core)</p><strong>CGPA · 7.7</strong></div></div>
-        <div class="edu"><span>2024 — 2025</span><div><h3>Kendriya Vidyalaya NAL</h3><p>Class XII · Bengaluru, Karnataka</p><strong>70%</strong></div></div>
-        <div class="edu"><span>2022 — 2023</span><div><h3>Kendriya Vidyalaya NAL</h3><p>Matriculation · Bengaluru, Karnataka</p><strong>74%</strong></div></div>
+    <section class="section contact" id="contact">
+      <div class="contact-orb"></div>
+      <div class="section-kicker reveal">06 / CONTACT</div>
+      <h2 class="contact-title reveal">Have an idea?<br><span>Let's build it.</span></h2>
+      <div class="contact-actions reveal delay-1">
+        <a class="btn btn-primary magnetic" href="mailto:shaswatraj585@gmail.com">Email me ↗</a>
+        <a class="btn btn-ghost magnetic" href="https://github.com/ShaswatRaj01" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost magnetic" href="https://www.linkedin.com/in/shaswat-raj-singh-76768238a" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-    </section>
-
-    <section id="contact" class="contact section">
-      <div class="contact-glow"></div>
-      <div class="reveal"><span class="eyebrow">LET'S BUILD SOMETHING</span><h2>Something<br><em>interesting.</em></h2><p>Learning, building and experimenting — one project at a time.</p>
-      <div class="actions"><a class="btn primary big" href="mailto:shaswatraj585@gmail.com">Email me ↗</a><a class="btn ghost big" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/shaswat-raj-singh-76768238a/">LinkedIn ↗</a><a class="btn ghost big" target="_blank" rel="noreferrer" href="https://github.com/ShaswatRaj01">GitHub ↗</a></div></div>
+      <p class="contact-email">shaswatraj585@gmail.com</p>
     </section>
   </main>
 
-  <footer><span>SHASWAT RAJ SINGH</span><span>Building · Learning · Exploring</span><span>© 2026</span></footer>
+  <footer>
+    <span>© 2026 SHASWAT RAJ SINGH</span>
+    <span>BUILT WITH HTML · CSS · JS</span>
+  </footer>
 
-  <div class="modal" id="certModal" aria-hidden="true"><div class="modal-backdrop"></div><div class="modal-box"><button class="close" aria-label="Close">×</button><iframe id="certFrame" title="Certificate preview"></iframe><p>Replace the linked file in <code>certificates/</code> with your original certificate.</p></div></div>
   <script src="script.js"></script>
 </body>
 </html>

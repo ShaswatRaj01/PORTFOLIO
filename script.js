@@ -1,122 +1,68 @@
-const glow=document.getElementById("cursorGlow");
-const cursorDot=document.createElement("div");
-cursorDot.className="cursor-dot";
-document.body.appendChild(cursorDot);
+const root = document.documentElement;
+const nav = document.getElementById('nav');
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+const glow = document.querySelector('.cursor-glow');
+let mouseX = innerWidth/2, mouseY = innerHeight/2, ringX = mouseX, ringY = mouseY, glowX = mouseX, glowY = mouseY;
 
-let mouseX=innerWidth/2, mouseY=innerHeight/2;
-let glowX=mouseX, glowY=mouseY;
-let lastTrail=0;
-
-addEventListener("pointermove",e=>{
-  mouseX=e.clientX; mouseY=e.clientY;
-  document.documentElement.style.setProperty("--cursor-x",`${mouseX}px`);
-  document.documentElement.style.setProperty("--cursor-y",`${mouseY}px`);
-  cursorDot.style.transform=`translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;
-
-  const hue=Math.round(185 + (mouseX/innerWidth)*150 + (mouseY/innerHeight)*25);
-  const sat=Math.round(82 + (mouseY/innerHeight)*18);
-  document.documentElement.style.setProperty("--hue",`${hue}deg`);
-  document.documentElement.style.setProperty("--sat",`${sat}%`);
-
-  const now=performance.now();
-  if(now-lastTrail>28 && matchMedia("(pointer:fine)").matches){
-    const t=document.createElement("span");
-    t.className="cursor-trail";
-    t.style.left=`${mouseX}px`;t.style.top=`${mouseY}px`;
-    document.body.appendChild(t);
-    setTimeout(()=>t.remove(),700);
-    lastTrail=now;
-  }
+window.addEventListener('pointermove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  root.style.setProperty('--mx', `${mouseX}px`);
+  root.style.setProperty('--my', `${mouseY}px`);
+  if(dot){ dot.style.left = mouseX+'px'; dot.style.top = mouseY+'px'; }
+  document.querySelectorAll('.project-card').forEach(card=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--cx', `${mouseX-r.left}px`);
+    card.style.setProperty('--cy', `${mouseY-r.top}px`);
+  });
 });
-
-addEventListener("pointerover",e=>{
-  if(e.target.closest("a,button,.skill-card,.project-card,.cert-card,.sport-item,.floating-chip")) cursorDot.classList.add("active");
-});
-addEventListener("pointerout",e=>{
-  if(e.target.closest("a,button,.skill-card,.project-card,.cert-card,.sport-item,.floating-chip")) cursorDot.classList.remove("active");
-});
-
-function animateGlow(){
-  glowX += (mouseX-110-glowX)*.12;
-  glowY += (mouseY-110-glowY)*.12;
-  glow.style.transform=`translate(${glowX}px,${glowY}px)`;
-  requestAnimationFrame(animateGlow);
+function cursorLoop(){
+  ringX += (mouseX-ringX)*.18; ringY += (mouseY-ringY)*.18;
+  glowX += (mouseX-glowX)*.08; glowY += (mouseY-glowY)*.08;
+  if(ring){ring.style.left=ringX+'px';ring.style.top=ringY+'px'}
+  if(glow){glow.style.left=glowX+'px';glow.style.top=glowY+'px'}
+  requestAnimationFrame(cursorLoop);
 }
-animateGlow();
+cursorLoop();
 
-const orb=document.getElementById("orb");
-addEventListener("pointermove",e=>{
-  if(innerWidth>850){
-    const x=(e.clientX/innerWidth-.5)*16;
-    const y=(e.clientY/innerHeight-.5)*-16;
-    orb.style.transform=`rotateX(${y}deg) rotateY(${x}deg)`;
-  }
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', scrollY>30);
+  root.style.setProperty('--scroll', scrollY);
 });
 
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting)e.target.classList.add("show")
-}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){entry.target.classList.add('visible'); observer.unobserve(entry.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-document.querySelectorAll(".project-card,.skill-card,.cert-card,.sport-item").forEach(card=>{
-  const spot=document.createElement("span");
-  spot.className="cursor-spot";
-  card.appendChild(spot);
-
-  card.addEventListener("pointermove",e=>{
-    if(innerWidth<850)return;
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('pointermove',e=>{
+    if(matchMedia('(pointer:coarse)').matches) return;
     const r=card.getBoundingClientRect();
     const x=(e.clientX-r.left)/r.width-.5;
     const y=(e.clientY-r.top)/r.height-.5;
-    card.style.setProperty("--rx",`${-y*5}deg`);
-    card.style.setProperty("--ry",`${x*7}deg`);
-    card.style.setProperty("--mx",`${e.clientX-r.left}px`);
-    card.style.setProperty("--my",`${e.clientY-r.top}px`);
+    card.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateY(-3px)`;
   });
-  card.addEventListener("pointerenter",()=>spot.style.opacity="1");
-  card.addEventListener("pointerleave",()=>{
-    card.style.setProperty("--rx","0deg");
-    card.style.setProperty("--ry","0deg");
-    spot.style.opacity="0";
-  });
+  card.addEventListener('pointerleave',()=>card.style.transform='');
 });
 
-document.querySelectorAll(".cert-card[data-cert] button").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const card=btn.closest(".cert-card"),file=card.dataset.cert,modal=document.getElementById("certModal");
-    document.getElementById("certFrame").src=file;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden","false");
+document.querySelectorAll('.magnetic').forEach(el=>{
+  el.addEventListener('pointermove',e=>{
+    if(matchMedia('(pointer:coarse)').matches)return;
+    const r=el.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+    el.style.transform=`translate(${x*.14}px,${y*.14}px)`;
   });
+  el.addEventListener('pointerleave',()=>el.style.transform='');
 });
 
-const modal=document.getElementById("certModal");
-function closeModal(){
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
-  document.getElementById("certFrame").src="";
-}
-document.querySelector(".close").onclick=closeModal;
-document.querySelector(".modal-backdrop").onclick=closeModal;
-addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+const menu=document.querySelector('.menu');
+menu?.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 
-const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");
-function resize(){
-  canvas.width=innerWidth*devicePixelRatio;
-  canvas.height=innerHeight*devicePixelRatio;
-  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-}
-resize();addEventListener("resize",resize);
-const pts=Array.from({length:90},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.3+.2,s:Math.random()*.25+.08}));
-function stars(){
-  ctx.clearRect(0,0,innerWidth,innerHeight);
-  for(const p of pts){
-    p.y-=p.s;if(p.y<0)p.y=innerHeight;
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle="rgba(170,220,255,.5)";ctx.fill();
-  }
-  requestAnimationFrame(stars);
-}
-stars();
-
-document.querySelector(".menu").addEventListener("click",()=>document.querySelector(".navlinks").classList.toggle("open"));
+const orb=document.querySelector('.orb-core');
+window.addEventListener('pointermove',e=>{
+  if(!orb || matchMedia('(pointer:coarse)').matches)return;
+  const x=(e.clientX/innerWidth-.5)*18, y=(e.clientY/innerHeight-.5)*18;
+  orb.style.transform=`translate(${x}px,${y}px)`;
+});
