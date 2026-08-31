@@ -1,25 +1,15 @@
-# Shaswat Raj Singh — Portfolio
+# Shaswat Raj Singh Portfolio — Fixed Flow Effect
 
-Files:
+Replace these files in the GitHub repository:
 - index.html
 - style.css
 - script.js
-- shaswat-portrait.png  ← add your existing portrait here
 
-## GitHub Pages
-Upload all four files to the root of your repository.
+Keep `shaswat-portrait.png` in the same root folder.
 
-The HTML expects the portrait filename to be exactly:
-
-shaswat-portrait.png
-
-The website includes:
-- Dark space/star background
-- Subtle cursor-following surface
-- Flowing letter hover animation on the name
-- Subtle hero parallax
-- Tech stack logos
-- Projects and stats
-- Responsive mobile layout
+The previous title issue happened because the gradient was applied to the parent
+heading while its dynamically-created child letters had transparent text.
+This version applies the gradient directly to each letter, so the title remains
+visible while the hover flow works.
 
 No certificate files are required for this version.
