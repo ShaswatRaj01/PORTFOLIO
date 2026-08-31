@@ -31,9 +31,12 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:19;back
 
 /* ===== Portrait hero ===== */
 .portrait-art{height:650px;position:relative;display:grid;place-items:center}
-.portrait-stage{width:min(520px,46vw);height:620px;position:relative;transform-style:preserve-3d;transition:transform .18s ease-out}
-.portrait-image-wrap{position:absolute;inset:20px 0 0;display:flex;justify-content:center;align-items:flex-end;z-index:3;filter:drop-shadow(0 25px 45px rgba(0,0,0,.45))}
-.portrait-image{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block;user-select:none;pointer-events:none}
+.portrait-stage{width:min(520px,46vw);height:620px;position:relative}
+
+/* Circular PFP-style portrait: clean, professional, with a subtle floating motion. */
+.portrait-image-wrap{position:absolute;width:430px;height:430px;left:50%;top:50%;transform:translate(-50%,-54%);border-radius:50%;overflow:hidden;z-index:3;filter:drop-shadow(0 25px 45px rgba(0,0,0,.45));border:1px solid rgba(128,190,255,.34);background:rgba(8,14,35,.55);box-shadow:0 0 55px rgba(76,122,255,.12),inset 0 0 40px rgba(120,100,255,.08);animation:portraitFloat 5s ease-in-out infinite}
+.portrait-image-wrap::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),inset 0 -35px 70px rgba(4,8,25,.18);pointer-events:none}
+.portrait-image{width:100%;height:150%;object-fit:cover;object-position:center 24%;display:block;user-select:none;pointer-events:none}
 .portrait-halo{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(113,231,255,.45);z-index:1}
 .halo-1{width:470px;height:470px;box-shadow:0 0 90px rgba(69,157,255,.14),inset 0 0 70px rgba(111,87,255,.08);animation:haloSpin 18s linear infinite}
 .halo-2{width:380px;height:380px;border-color:rgba(177,117,255,.28);transform:translate(-50%,-50%) rotate(18deg);animation:haloSpin 12s linear infinite reverse}
@@ -45,6 +48,7 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:19;back
 .floating-chip{z-index:6;display:flex;align-items:center;gap:7px}
 .chip-dot{width:6px;height:6px;border-radius:50%;background:#79ebff;box-shadow:0 0 12px #79ebff}
 .chip-d{top:205px;left:10px}
+@keyframes portraitFloat{0%,100%{margin-top:0}50%{margin-top:-9px}}
 @keyframes haloSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @keyframes orbitFloat{50%{transform:translateY(-10px) scale(1.15)}}
 
@@ -64,91 +68,6 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:19;back
   .halo-1{width:300px;height:300px}.halo-2{width:245px;height:245px}
   .portrait-image-wrap{inset:10px 0 0}
   .chip-a{top:65px;right:0}.chip-b{bottom:105px;left:0}.chip-c{bottom:55px;right:0}.chip-d{top:120px;left:0;right:auto}
-}
-
-
-/* ===== Subtle interaction pass ===== */
-:root{
-  --surface-size: 110px;
-}
-
-/* Small, soft surface that follows the cursor. Intentionally restrained. */
-#cursorSurface{
-  position:fixed;
-  left:0;
-  top:0;
-  width:var(--surface-size);
-  height:var(--surface-size);
-  border-radius:24px;
-  pointer-events:none;
-  z-index:9998;
-  opacity:.34;
-  transform:translate(-200px,-200px);
-  background:
-    radial-gradient(circle at 30% 30%,rgba(150,190,255,.10),transparent 58%),
-    linear-gradient(135deg,rgba(255,255,255,.045),rgba(100,130,220,.025));
-  border:1px solid rgba(170,200,255,.07);
-  backdrop-filter:blur(3px);
-  -webkit-backdrop-filter:blur(3px);
-  transition:width .25s ease,height .25s ease,opacity .25s ease,border-color .25s ease;
-}
-#cursorSurface.active{
-  width:128px;
-  height:128px;
-  opacity:.46;
-  border-color:rgba(170,200,255,.12);
-}
-
-/* Star field: calm and visible, not flashy. */
-#stars{opacity:.9}
-body{
-  background:
-    radial-gradient(circle at 20% 15%,rgba(85,105,180,.075),transparent 30%),
-    radial-gradient(circle at 80% 45%,rgba(80,130,220,.055),transparent 32%),
-    #080b18;
-}
-
-/* Much softer card hover treatment. */
-.project-card:before,.skill-card:before,.cert-card:before,.sport-item:before{
-  background:radial-gradient(170px circle at var(--mx,50%) var(--my,50%),rgba(150,205,255,.055),transparent 68%);
-}
-.project-card:hover:before,.skill-card:hover:before,.cert-card:hover:before,.sport-item:hover:before{opacity:.72}
-
-.btn:hover,.navlinks a:hover,.socials a:hover{
-  filter:none;
-  text-shadow:0 0 10px rgba(150,205,255,.22);
-}
-.nav:hover{
-  border-color:rgba(150,205,255,.13);
-  box-shadow:0 12px 45px rgba(40,100,180,.06);
-}
-.hero h1 em:hover{
-  filter:none;
-  text-shadow:0 0 14px rgba(150,205,255,.14);
-}
-.skill-card:hover img{
-  filter:drop-shadow(0 0 7px rgba(150,205,255,.16));
-}
-.cert-card button:hover{
-  box-shadow:0 7px 20px rgba(105,180,230,.08);
-}
-.floating-chip:hover{
-  border-color:rgba(150,205,255,.15);
-  box-shadow:0 12px 30px rgba(70,120,190,.08);
-}
-
-/* Make the portrait interaction feel like a floating panel rather than a flashy tilt. */
-.portrait-stage{
-  transition:transform .28s cubic-bezier(.2,.7,.2,1);
-}
-.portrait-halo{
-  opacity:.62;
-}
-.halo-1{box-shadow:0 0 55px rgba(69,157,255,.075),inset 0 0 45px rgba(111,87,255,.045)}
-.halo-2{box-shadow:0 0 40px rgba(120,90,230,.04)}
-
-@media(pointer:coarse){
-  #cursorSurface{display:none}
 }
 
 
@@ -262,3 +181,22 @@ body:after { display:none !important; }
 /* Gentle non-cursor feedback: buttons only change opacity, without movement. */
 .btn { transition:opacity .2s ease, background-color .2s ease; }
 .btn:hover { opacity:.88; }
+
+
+/* ===== Clean interaction pass ===== */
+/* No cursor-following glow, tilt, or flashy hover transformations. */
+.btn:hover, .skill-card:hover, .project-card:hover, .cert-card:hover, .sport-item:hover, .floating-chip:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+.skill-card:hover, .project-card:hover, .cert-card:hover, .sport-item:hover {
+  border-color: inherit;
+}
+.btn:hover, .navlinks a:hover, .socials a:hover, .hero h1 em:hover {
+  filter: none !important;
+  text-shadow: none !important;
+}
+.skill-card:hover img {
+  transform: none !important;
+  filter: none !important;
+}
